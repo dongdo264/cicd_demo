@@ -3,6 +3,7 @@ pipeline {
 
 	tools {
 		maven 'MAVEN_HOME'
+		jdk 'JDK17'
 	}
 
 	stages {
@@ -21,7 +22,7 @@ pipeline {
 
 		stage('Deploy') {
 			steps {
-			    bat "mvn jar:jar deploy:deploy"
+			    bat "mvn deploy -Dmaven.install.skip=true -DskipTests"
 			}
 		}
 	}
