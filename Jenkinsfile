@@ -1,19 +1,16 @@
 pipeline {
 	agent any
 
-	environment {
-		mavenHome = tool 'MAVEN_HOME'
-	}
-
 	tools {
-		jdk 'JDK17'
+		jdk 'JDK17',
+		maven 'MAVEN_HOME'
 	}
 
 	stages {
 
 		stage('Build'){
 			steps {
-				bat "mvn clean"
+				bat "mvn clean package"
 			}
 		}
 
