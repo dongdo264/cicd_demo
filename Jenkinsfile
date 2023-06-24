@@ -21,9 +21,12 @@ pipeline {
 // 		}
 
 		stage('Deploy') {
+// 			steps {
+// 			    bat "mvn deploy -Dmaven.install.skip=true -DskipTests"
+// 			}
 			steps {
-			    bat "mvn deploy -Dmaven.install.skip=true -DskipTests"
-			}
+            	bat "mvn spring-boot:run"
+            }
 		}
 	}
 }
